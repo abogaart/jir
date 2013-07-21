@@ -2,5 +2,6 @@
     "gitExec" : "git",
     "gitRepositoryUrl" : "https://github.com/spikylee/hippo-versions-test.git",
     "updateInterval" : 1,
-    "lastUpdate" : 0
+    "lastUpdate" : 0,
+    "developer": true
 }

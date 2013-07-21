@@ -27,9 +27,7 @@ exports['awesome'] = {
         // setup here
         done();
     },
-    'no args': function(test) {
-        test.expect(1);
-        // tests here
+    'globals': function(test) {
         test.equal(jir.noArgs(), 'noArgs', 'should be noArgs.');
         test.done();
     }
