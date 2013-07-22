@@ -1,6 +1,6 @@
 'use strict';
 
-var jir = require('../lib/jir.js');
+var tools = require('../lib/tools.js');
 
 /*
  ======== A Handy Little Nodeunit Reference ========
@@ -22,13 +22,18 @@ var jir = require('../lib/jir.js');
  test.ifError(value)
  */
 
-exports['awesome'] = {
+exports['tools.versionAsInt'] = {
     setUp: function(done) {
         // setup here
         done();
     },
     'globals': function(test) {
-        test.equal(jir.noArgs(), 'noArgs', 'should be noArgs.');
+        test.equal(tools.versionAsInt("1"), 10000, 'should be 10000.');
+        test.equal(tools.versionAsInt("1.0"), 10000, 'should be 10000.');
+        test.equal(tools.versionAsInt("1.1"), 10100, 'should be 10100.');
+        test.equal(tools.versionAsInt("1.25"), 12500, 'should be 12500.');
+        test.equal(tools.versionAsInt("1.00.00"), 10000, 'should be 10000.');
+        test.equal(tools.versionAsInt("1.25.10"), 12510, 'should be 12510.');
         test.done();
     }
 };
