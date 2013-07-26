@@ -30,6 +30,8 @@ jir archetype latest
 
 ### Running the tests
 
+To run the tests, open a shell in the project directory and execute:
+
 ``` sh
 grunt
 ```
