@@ -1,6 +1,6 @@
 {
     "name": "jir",
-    "version": "v0.0.2",
+    "version": "v0.0.3",
     "description": "Hippo assistance on the command line",
     "keywords": ["cli", "hippo"],
     "licenses": [
