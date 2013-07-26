@@ -34,8 +34,8 @@
         "shelljs": "~0.1.4"
     },
     "main" : "./lib/jir",
-    "bin":          {
-        "jir":       "./lib/cli.js"
+    "bin": {
+        "jir": "./lib/cli.js"
     },
     "scripts": {
         "test": "grunt test"
