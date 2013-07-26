@@ -23,5 +23,5 @@ jir
 ### Running with arguments
 
 ``` sh
-jir archetype
+jir archetype latest
 ```
