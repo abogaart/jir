@@ -6,7 +6,7 @@
     "archetypes.major" : "Showing latest %s major Hippo archetypes, please choose one or view all\n",
     "archetypes.all" : "Showing all Hippo archetypes, please choose one",
 
-    "archetype.mvn.data" : "\n   - Project name: %s\n   - Package: %s\n   - ArtifactId: %s\n   - GroupId: %s\n   - Version: %s",
+    "archetype.mvn.data" : "\n   - Name       : %s\n   - Package    : %s\n   - ArtifactId : %s\n   - GroupId    : %s\n   - Version    : %s",
     "archetype.mvn.cmd" : "mvn archetype:generate -DarchetypeRepository=http://maven.onehippo.com/maven2 -DarchetypeGroupId=%s -DarchetypeArtifactId=%s -DarchetypeVersion=%s -DprojectName=%s -Dpackage=%s -DartifactId=%s -DgroupdId=%s -Dversion=%s -DinteractiveMode=false",
     "archetype.mvn.die" : "Failed to create the Hippo archetype. Maven output :\n %s",
 
