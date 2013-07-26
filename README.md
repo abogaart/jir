@@ -26,6 +26,28 @@ jir
 jir archetype latest
 ```
 
+## Developer information
+
+### Running the tests
+
+``` sh
+grunt
+```
+
+### Running in debug mode
+
+To start Jir in debug mode, simply set the environment variable JIR_DEBUG to true, like:
+
+ ``` sh
+ export JIR_DEBUG=true
+ ```
+
+ To run in normal mode again use:
+
+ ``` sh
+ export JIR_DEBUG=
+ ```
+
 ## License
 
 The MIT License (MIT)
