@@ -1,7 +1,16 @@
 {
     "gitExec" : "git",
     "gitRepositoryUrl" : "https://github.com/spikylee/hippo-versions-test.git",
+    "mvnExec" : "mvn",
     "updateInterval" : 1,
-    "lastUpdate" : 0,
-    "developer": true
+    "skipUpdate" : false,
+    "developer": true,
+    "verbose" : true,
+    "maxMajorArchetypes" : 3,
+    "archetypeProjectName" : "My Hippo Project",
+    "archetypePackage" : "org.example",
+    "archetypeArtifactId" : "my-hippo-project",
+    "archetypeGroupId" : "org.example",
+    "archetypeVersion" : "1.01.00-SNAPSHOT"
+
 }

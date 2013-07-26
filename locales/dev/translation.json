@@ -1,5 +1,0 @@
-{
-    "greeting": "Welcome to Jir, a Hippo tool for commandline geeks. Currently the dataset is being checked out and installed. This will only take a few seconds.\n",
-    "die.no.git" : "Jir requires git to be installed, could not detect the executable %s",
-    "die.no.mvn" : "Jir requires Maven3 to be installed, could not detect the executable %s"
-}

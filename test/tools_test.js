@@ -1,6 +1,6 @@
 'use strict';
 
-var tools = require('../lib/tools.js');
+var tools = require('../lib/common.js');
 
 /*
  ======== A Handy Little Nodeunit Reference ========

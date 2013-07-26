@@ -1,5 +1,16 @@
 {
-    "greeting": "Welcome to Jir, a Hippo tool for the commandline. Currently the dataset is being checked out and installed. This will only take a few seconds.\n",
+    "app.welcome" : "Welcome to Jir, a Hippo tool for the commandline. Currently the dataset is being checked out and installed. This will only take a few seconds.",
+
+    "data.updated" : "Datafile has been updated.",
+
+    "archetypes.major" : "Showing latest %s major Hippo archetypes, please choose one or view all\n",
+    "archetypes.all" : "Showing all Hippo archetypes, please choose one",
+
+    "archetype.mvn.data" : "\n   - Project name: %s\n   - Package: %s\n   - ArtifactId: %s\n   - GroupId: %s\n   - Version: %s",
+    "archetype.mvn.cmd" : "mvn archetype:generate -DarchetypeRepository=http://maven.onehippo.com/maven2 -DarchetypeGroupId=%s -DarchetypeArtifactId=%s -DarchetypeVersion=%s -DprojectName=%s -Dpackage=%s -DartifactId=%s -DgroupdId=%s -Dversion=%s -DinteractiveMode=false",
+    "archetype.mvn.die" : "Failed to create the Hippo archetype. Maven output :\n %s",
+
     "die.no.git" : "Jir requires git to be installed, could not detect the executable %s",
     "die.no.mvn" : "Jir requires Maven3 to be installed, could not detect the executable %s"
+
 }
