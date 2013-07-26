@@ -1,6 +1,6 @@
 {
     "gitExec" : "git",
-    "gitRepositoryUrl" : "https://github.com/spikylee/hippo-versions-test.git",
+    "gitRepositoryUrl" : "https://github.com/spikylee/hippo-versions.git",
     "mvnExec" : "mvn",
     "updateInterval" : 1,
     "skipUpdate" : false,
