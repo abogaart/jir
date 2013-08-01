@@ -2,7 +2,9 @@
     "app.welcome" : "Welcome to Jir, a Hippo tool for the commandline. Currently the dataset is being checked out and installed. This will only take a few seconds.",
 
     "data.updated" : "Datafile has been updated.",
-    "folder.already.exists" : "The folder %s already contains a folder named %s, please enter a new name.",
+
+    "folder.already.exists" : "The folder %s already contains a folder named %s, please try a new name.",
+    "folder.new.name" : "New folder name: ",
 
     "archetypes.major" : "Showing latest %s major Hippo archetypes, please choose one or view all\n",
     "archetypes.all" : "Showing all Hippo archetypes, please choose one",
