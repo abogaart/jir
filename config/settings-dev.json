@@ -7,10 +7,11 @@
     "developer": true,
     "verbose" : true,
     "maxMajorArchetypes" : 3,
-    "archetypeProjectName" : "My Hippo Project",
-    "archetypePackage" : "org.example",
-    "archetypeArtifactId" : "my-hippo-project",
-    "archetypeGroupId" : "org.example",
-    "archetypeVersion" : "1.01.00-SNAPSHOT"
-
+    "defaultArchetype" : {
+        "projectName" : "My Hippo Project",
+        "pkg" : "org.example",
+        "artifactId" : "my-hippo-project",
+        "groupId" : "org.example",
+        "version" : "1.01.00-SNAPSHOT"
+    }
 }
