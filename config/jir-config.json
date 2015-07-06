@@ -1,0 +1,17 @@
+{
+    "verbose" : false,
+    "git" : {
+        "exec": "git"
+    },
+    "mvn" : {
+        "exec": "mvn"
+    },
+    "svn" : {
+        "exec": "svn"
+    },
+    "update": {
+        "interval": 1,
+        "skip": false,
+        "force": false
+    }
+}
