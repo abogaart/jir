@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/abogaart/jir/badge.svg)](https://coveralls.io/r/abogaart/jir)
+
 # Jir
 
 Bring Hippo assistance to the command line.
@@ -28,6 +30,11 @@ jir archetype latest
 
 ## Developer information
 
+### The Javascript code style is enforced with JSCS and linted with JSHint
+* http://jscs.info/rules.html
+* http://jshint.com/docs
+
+
 ### Running the tests
 
 To run the tests, open a shell in the project directory and execute:
@@ -49,6 +56,13 @@ To start Jir in debug mode, simply set the environment variable JIR_DEBUG to tru
  ``` sh
  export JIR_DEBUG=
  ```
+
+### Use development-mode configuration from ./config/jir-config-dev.json
+``` sh
+ export JIR_DEVMODE=true
+ ```
+
+
 
 ## License
 
