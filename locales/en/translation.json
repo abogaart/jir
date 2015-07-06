@@ -3,11 +3,12 @@
 
     "data.updated" : "Datafile has been updated.",
 
-    "folder.already.exists" : "The folder %s already contains a folder named %s, please try a new name.",
-    "folder.new.name" : "New folder name: ",
+    "workspace.create.name": "Workspace name",
 
-    "archetypes.major" : "Showing latest %s major Hippo archetypes, please choose one or view all\n",
-    "archetypes.all" : "Showing all Hippo archetypes, please choose one",
+    "validation.folder-already-exists": "Folder %s already exists, please try a different name.",
+
+    "archetypes.major" : "Showing latest %s major Hippo archetypes, please choose one or view all",
+    "archetypes.all" : "Showing all Hippo archetypes (%s), please choose one",
 
     "archetype.mvn.data2" : "\n   - Name       : %s\n   - Package    : %s\n   - ArtifactId : %s\n   - GroupId    : %s\n   - Version    : %s\n   - Path       : %s",
     "archetype.mvn.data" : "\n   - Name       : %s\n   - Package    : %s\n   - ArtifactId : %s\n   - GroupId    : %s\n   - Version    : %s\n   - Path       : %s",
@@ -15,6 +16,12 @@
     "archetype.mvn.die" : "Failed to create the Hippo archetype. Maven output :\n\n%s",
 
     "die.no.git" : "Jir requires git to be installed, could not detect the executable %s",
-    "die.no.mvn" : "Jir requires Maven3 to be installed, could not detect the executable %s"
+    "die.no.mvn" : "Jir requires Maven3 to be installed, could not detect the executable %s",
 
+    "ask.number.between" : "Value must be a number between %s and %s",
+    "ask.yesno.validation" : "Value must be %s or %s",
+
+    "test.0": "test",
+    "test.1": "test %s",
+    "test.2": "test %s and %s"
 }
