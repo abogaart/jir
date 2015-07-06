@@ -1,0 +1,29 @@
+{
+  "bitwise": true,
+  "boss": true,
+  "browser": false,
+  "curly": true,
+  "eqnull": true,
+  "expr": true,
+  "globals": {
+    "_": true,
+    "console": true,
+    "indexOf": true,
+    "describe": true,
+    "it": true
+  },
+  "globalstrict": true,
+  "immed": true,
+  "laxbreak": true,
+  "loopfunc": true,
+  "newcap": false,
+  "noarg": true,
+  "node": true,
+  "noempty": true,
+  "nonew": true,
+  "maxlen": 120,
+  "sub": false,
+  "trailing": true,
+  "undef": true,
+  "unused": "vars"
+}
