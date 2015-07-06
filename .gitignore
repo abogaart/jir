@@ -2,4 +2,5 @@ atlassian-ide-plugin.xml
 node_modules
 tmp
 .coveralls.yml
+coverage
 lib2
