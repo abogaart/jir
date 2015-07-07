@@ -21,6 +21,19 @@ describe('String utils', function() {
     expect(strings.isBlank('  s')).to.not.be.true;
   });
 
+  it('format', function() {
+    expect(strings.format()).to.equal('');
+    expect(strings.format(undefined)).to.equal('');
+    expect(strings.format(null)).to.equal('');
+    expect(strings.format('')).to.equal('');
+
+    expect(strings.format('test')).to.equal('test');
+    expect(strings.format('%s', 'test')).to.equal('test');
+    expect(strings.format('%s', ['test'])).to.equal('test');
+    expect(strings.format('%s - %s', 'test1', 'test2')).to.equal('test1 - test2');
+    expect(strings.format('%s - %s', ['test1', 'test2'])).to.equal('test1 - test2');
+  });
+
   it('colored', function() {
     var blue = chalk.blue;
     expect(strings.colored()).to.equal(undefined);
