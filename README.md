@@ -41,7 +41,7 @@ jir archetype latest
 To run the tests, open a shell in the project directory and execute:
 
 ``` sh
-grunt
+grunt test
 ```
 
 ### Running in debug mode
