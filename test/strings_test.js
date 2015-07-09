@@ -38,11 +38,11 @@ describe('String utils', function() {
     var blue = chalk.blue;
     expect(strings.colored()).to.equal(undefined);
     expect(strings.colored(blue)).to.equal(undefined);
-    expect(strings.colored(blue, [])).to.deep.equal([]);
-    expect(strings.colored(blue, ['test'])).to.deep.equal([blue('test')]);
-    expect(strings.colored(blue, ['test1', 'test2'])).to.deep.equal([blue('test1'), blue('test2')]);
+    expect(strings.colored(blue, [])).to.eql([]);
+    expect(strings.colored(blue, ['test'])).to.eql([blue('test')]);
+    expect(strings.colored(blue, ['test1', 'test2'])).to.eql([blue('test1'), blue('test2')]);
     expect(strings.colored(blue, ['test1', chalk.yellow('test2')]))
-      .to.deep.equal([blue('test1'), chalk.yellow('test2')]);
+      .to.eql([blue('test1'), chalk.yellow('test2')]);
   });
 
   it('translate empty values', function() {

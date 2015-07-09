@@ -38,24 +38,24 @@ describe('File utils', function() {
   });
 
   it('read non-existing json file', function() {
-    expect(files.readJSON('non-existing')).to.deep.equal({});
-    expect(files.readJSON('non-existing.json')).to.deep.equal({});
+    expect(files.readJSON('non-existing')).to.eql({});
+    expect(files.readJSON('non-existing.json')).to.eql({});
   });
 
   it('read non-existing json file', function() {
-    expect(files.readJSON('non-existing')).to.deep.equal({});
-    expect(files.readJSON('non-existing.json')).to.deep.equal({});
+    expect(files.readJSON('non-existing')).to.eql({});
+    expect(files.readJSON('non-existing.json')).to.eql({});
   });
 
   it('read existing json file', function() {
-    expect(files.readJSON('./test/resources/test.json')).to.deep.equal({id: 'test-file'});
+    expect(files.readJSON('./test/resources/test.json')).to.eql({id: 'test-file'});
   });
 
   it('write json file', function() {
     var file = './test/resources/tmp.json';
     var json = {id: 'write-json-file'};
     files.writeJSON(json, file);
-    expect(files.readJSON(file)).to.deep.equal(json);
+    expect(files.readJSON(file)).to.eql(json);
 
     // remove tmp file
     sh.rm(file);
