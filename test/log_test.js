@@ -2,9 +2,26 @@
 
 var expect = require('chai').expect;
 var chalk  = require('chalk');
+var sinon  = require('sinon');
 var log = require('../lib/util/log.js');
 
 describe('Log utils', function() {
+  var sandbox;
+
+  beforeEach(function() {
+    // create a sandbox
+    sandbox = sinon.sandbox.create();
+
+    // stub some console methods
+    sandbox.stub(console, 'log');
+    sandbox.stub(console, 'error');
+  });
+
+  afterEach(function() {
+    // restore the environment as it was before
+    sandbox.restore();
+  });
+
   it('log object as string', function() {
     var c = chalk.blue;
 
@@ -48,104 +65,99 @@ describe('Log utils', function() {
   });
 
   // Hacky testing
-  it('log info', function() {
-    var args = hijackConsoleLog(function() {
-      log.info('Hello world');
-      log.info('Hello %s', 'world');
-    });
-
-    var info = chalk.grey('Jir:');
-    expect(args[0][0]).to.equal(info + ' Hello world');
-    expect(args[1][0]).to.equal(info + ' Hello %s');
-    expect(args[1][1][0]).to.equal(chalk.blue('world'));
+  var info = chalk.grey('Jir:');
+  it('log info string', function() {
+    log.info('Hello world');
+    sinon.assert.notCalled(console.error);
+    sinon.assert.calledOnce(console.log);
+    sinon.assert.calledWithExactly(console.log, info + ' Hello world');
   });
 
-  it('log warning', function() {
-    var args = hijackConsoleLog(function() {
-      log.warn('Hello world');
-      log.warn('Hello %s', 'world');
-    });
+  it('log info string with param', function() {
+    log.info('Hello %s', 'world');
+    sinon.assert.notCalled(console.error);
+    sinon.assert.calledOnce(console.log);
+    sinon.assert.calledWithExactly(console.log, info + ' Hello %s', [chalk.blue('world')]);
+  });
 
-    var warn = chalk.yellow('Warning:');
-    expect(args[0][0]).to.equal(warn + ' Hello world');
-    expect(args[1][0]).to.equal(warn + ' Hello %s');
-    expect(args[1][1][0]).to.equal(chalk.blue('world'));
+  var warn = chalk.yellow('Warning:');
+  it('log warning string', function() {
+    log.warn('Hello world');
+    sinon.assert.notCalled(console.error);
+    sinon.assert.calledOnce(console.log);
+    sinon.assert.calledWithExactly(console.log, warn + ' Hello world');
+  });
+
+  it('log warning string with param', function() {
+    log.warn('Hello %s', 'world');
+    sinon.assert.notCalled(console.error);
+    sinon.assert.calledOnce(console.log);
+    sinon.assert.calledWithExactly(console.log, warn + ' Hello %s', [chalk.blue('world')]);
   });
 
   it('log error no-args', function() {
-    var args = hijackConsoleLog(function() {
-      log.error();
-    });
-    expect(args.length).to.equal(0);
+    log.error();
+    sinon.assert.notCalled(console.error);
+    sinon.assert.notCalled(console.log);
   });
 
+  var err = chalk.red('Error:');
   it('log error from string', function() {
-    var args = hijackConsoleLog(function() {
-      log.error('Hello world');
-      log.error('Hello world', 'moon');
-      log.error('Hello %s', 'world');
-    });
+    log.error('Hello world');
+    sinon.assert.notCalled(console.error);
+    sinon.assert.calledOnce(console.log);
+    sinon.assert.calledWithExactly(console.log, err + ' Hello world');
+  });
 
-    var err = chalk.red('Error:');
-    expect(args[0][0]).to.equal(err + ' Hello world');
-    expect(args[1][0]).to.equal(err + ' Hello world');
-    expect(args[1][1]).to.be.undefined;
+  it('log error from string with non-existing param', function() {
+    log.error('Hello world', 'moon');
+    sinon.assert.notCalled(console.error);
+    sinon.assert.calledOnce(console.log);
+    sinon.assert.calledWithExactly(console.log, err + ' Hello world');
+  });
 
-    expect(args[2][0]).to.equal(err + ' Hello %s');
-    expect(args[2][1][0]).to.equal(chalk.blue('world'));
+  it('log error from string with param', function() {
+    log.error('Hello %s', 'world');
+    sinon.assert.notCalled(console.error);
+    sinon.assert.calledOnce(console.log);
+    sinon.assert.calledWithExactly(console.log, err + ' Hello %s', [chalk.blue('world')]);
   });
 
   it('log error from error object', function() {
-    var error1 = new Error('error 1');
-    var error2 = new TypeError('error 2');
-    var error3 = new Error('error %s');
-    var args = hijackConsoleLog(function() {
-      log.error(error1);
-      log.error(error2);
-      log.error(error2, '2');
-      log.error(error3, '3');
-    });
+    log.error(new Error('error 1'));
+    sinon.assert.notCalled(console.error);
+    sinon.assert.callCount(console.log, 4);
+    sinon.assert.calledWith(console.log, err + ' error 1');
+    sinon.assert.calledWith(console.log, chalk.red('Type:') + '  Error');
+    sinon.assert.calledWith(console.log, chalk.red('Stack:'));
+  });
 
-    var err = chalk.red('Error:');
-    expect(args[0][0]).to.equal(err + ' error 1');
-    expect(args[1][0]).to.equal(chalk.red('Type:') + '  Error');
-    expect(args[2][0]).to.equal(chalk.red('Stack:'));
+  it('log error from TypeError object', function() {
+    log.error(new TypeError('error 1'));
+    sinon.assert.notCalled(console.error);
+    sinon.assert.callCount(console.log, 4);
+    sinon.assert.calledWith(console.log, err + ' error 1');
+    sinon.assert.calledWith(console.log, chalk.red('Type:') + '  TypeError');
+    sinon.assert.calledWith(console.log, chalk.red('Stack:'));
+  });
 
-    expect(args[4][0]).to.equal(err + ' error 2');
-    expect(args[5][0]).to.equal(chalk.red('Type:') + '  TypeError');
-
-    expect(args[8][0]).to.equal(err + ' error 2');
-    expect(args[8][1]).to.be.undefined;
-
-    expect(args[12][0]).to.equal(err + ' error %s');
-    expect(args[12][1][0]).to.equal(chalk.blue('3'));
+  it('log error from Error object with params', function() {
+    log.error(new Error('error %s'), 1);
+    sinon.assert.notCalled(console.error);
+    sinon.assert.callCount(console.log, 4);
+    sinon.assert.calledWith(console.log, err + ' error %s', [chalk.blue('1')]);
+    sinon.assert.calledWith(console.log, chalk.red('Type:') + '  Error');
+    sinon.assert.calledWith(console.log, chalk.red('Stack:'));
   });
 
   it('log error from string and error object', function() {
-    var error1 = new Error('error 1');
-    var args = hijackConsoleLog(function() {
-      log.error('error 1', error1);
-      log.error('error %s', error1, '1');
-    });
+    log.error('Error %s', new SyntaxError('error 2'), 1);
 
-    var err = chalk.red('Error:');
-    expect(args[0][0]).to.equal(err + ' error 1');
-    expect(args[1][0]).to.equal(chalk.red('Type:') + '  Error');
-    expect(args[2][0]).to.equal(chalk.red('Stack:'));
-
-    expect(args[4][0]).to.equal(err + ' error %s');
-    expect(args[4][1][0]).to.equal(chalk.blue(1));
-    expect(args[6][0]).to.equal(chalk.red('Stack:'));
+    sinon.assert.notCalled(console.error);
+    sinon.assert.callCount(console.log, 4);
+    sinon.assert.calledWith(console.log, err + ' Error %s', [chalk.blue('1')]);
+    sinon.assert.calledWith(console.log, chalk.red('Type:') + '  SyntaxError');
+    sinon.assert.calledWith(console.log, chalk.red('Stack:'));
+    sinon.assert.calledWith(console.log, sinon.match('SyntaxError: error 2'));
   });
 });
-
-function hijackConsoleLog(action) {
-  var consoleLog = console.log;
-  var args = [];
-  console.log = function() {
-    args.push(arguments);
-  };
-  action();
-  console.log = consoleLog;
-  return args;
-}
