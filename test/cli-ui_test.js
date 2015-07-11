@@ -17,8 +17,8 @@ describe('CLI utils', function() {
       };
 
       ui.ask(question).then(function(data) {
-        expect(data.name).to.equal('Hello World');
         restoreStdout();
+        expect(data.name).to.equal('Hello World');
         done();
       });
 
