@@ -53,6 +53,8 @@
     "istanbul": "0.3.17",
     "jshint-stylish": "2.0.1",
     "mocha": "2.2.5",
-    "sinon": "1.15.4"
+    "robotjs": "0.1.2",
+    "sinon": "1.15.4",
+    "test-console": "1.0.0"
   }
 }
