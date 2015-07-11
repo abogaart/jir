@@ -14,7 +14,7 @@ before_install:
   - npm install node-pre-gyp
   # install 32 bit compiler toolchain and X11
   - platform=$(uname -s | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/")
-  - if [[ "$platform" == 'linux' ]]; then sudo apt-get -y install gcc-multilib g++-multilib; fi
+  - if [[ "$platform" == 'linux' ]]; then sudo apt-get update -qq && sudo apt-get -y install gcc-multilib g++-multilib; fi
   - echo $platform
 
 script:
