@@ -42,6 +42,7 @@ describe('String utils', function() {
     it('should return input untouched if no parameters specified', function() {
       expect(strings.format('test')).to.equal('test');
       expect(strings.format('test %s')).to.equal('test %s');
+      expect(strings.format('test', [])).to.equal('test');
     });
 
     it('should return string with substituted values', function() {
