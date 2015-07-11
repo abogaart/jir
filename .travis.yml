@@ -1,21 +1,21 @@
-language: node_js
+sudo: false
 
+language: node_js
 node_js:
   - "0.12"
-  - "0.11"
   - "0.10"
 
-before_install:
-  # put local node-pre-gyp on PATH
-  - export PATH=./node_modules/.bin/:$PATH
-  # install node-pre-gyp so it is available for packaging and publishing
-  - npm install node-gyp -g
-  # install node-pre-gyp so it is available for packaging and publishing
-  - npm install node-pre-gyp
-  # update apt
-  - sudo apt-get update -qq
-  # install 32 bit compiler toolchain and X11
-  - sudo apt-get -y install gcc-multilib g++-multilib
+addons:
+  apt:
+    packages:
+    - libx11-dev
+    - zlib1g-dev
+    - libpng12-dev
+    - libxtst-dev
+
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 
 script:
   # run tests with instanbul coverage
