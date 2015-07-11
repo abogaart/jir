@@ -53,6 +53,7 @@
     "istanbul": "0.3.17",
     "jshint-stylish": "2.0.1",
     "mocha": "2.2.5",
+    "node-pre-gyp": "0.6.7",
     "robotjs": "0.1.2",
     "sinon": "1.15.4",
     "test-console": "1.0.0"
