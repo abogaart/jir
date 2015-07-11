@@ -9,7 +9,7 @@ describe('CLI utils', function() {
   describe('#ask', function() {
     var restoreStdout;
     it('should ask a question', function(done) {
-      restoreStdout = stdout.ignore();
+      //restoreStdout = stdout.ignore();
 
       var question = {
         name: 'name',
@@ -17,7 +17,7 @@ describe('CLI utils', function() {
       };
 
       ui.ask(question).then(function(data) {
-        restoreStdout();
+        //restoreStdout();
         expect(data.name).to.equal('Hello World');
         done();
       });
