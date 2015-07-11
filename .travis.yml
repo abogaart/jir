@@ -14,6 +14,7 @@ before_install:
 
 script:
   # install 32 bit compiler toolchain and X11
+  - platform=$(uname -s | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/")
   - if [[ "$platform" == 'linux' ]]; then sudo apt-get -y install gcc-multilib g++-multilib; fi
   # run tests with instanbul coverage
   - npm run-script test-travis
