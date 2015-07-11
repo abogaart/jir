@@ -1,5 +1,6 @@
-[![Build Status](https://api.travis-ci.org/abogaart/jir.svg)](http://travis-ci.org/abogaart/jir)
-[![Coverage Status](https://coveralls.io/repos/abogaart/jir/badge.svg)](https://coveralls.io/r/abogaart/jir)
+[![Build Status](https://img.shields.io/travis/abogaart/jir.svg?style=flat-square)](http://travis-ci.org/abogaart/jir)
+[![Coverage Status](https://img.shields.io/coveralls/abogaart/jir.svg?style=flat-square)](https://coveralls.io/r/abogaart/jir)
+[![License](https://img.shields.io/github/license/abogaart/jir.svg?style=flat-square)]()
 
 # Jir
 
