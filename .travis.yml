@@ -12,10 +12,10 @@ before_install:
   - npm install node-gyp -g
   # install node-pre-gyp so it is available for packaging and publishing
   - npm install node-pre-gyp
+  # update apt
+  - sudo apt-get update -qq
   # install 32 bit compiler toolchain and X11
-  - platform=$(uname -s | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/")
-  - if [[ "$platform" == 'linux' ]]; then sudo apt-get update -qq && sudo apt-get -y install gcc-multilib g++-multilib; fi
-  - echo $platform
+  - sudo apt-get -y install gcc-multilib g++-multilib
 
 script:
   # run tests with instanbul coverage
