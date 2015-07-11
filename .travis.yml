@@ -16,9 +16,10 @@ script:
   # install 32 bit compiler toolchain and X11
   - platform=$(uname -s | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/")
   - if [[ "$platform" == 'linux' ]]; then sudo apt-get -y install gcc-multilib g++-multilib; fi
+  - echo $platform
   # run tests with instanbul coverage
   - npm run-script test-travis
 
 after_script:
   # send coverage data to Coveralls
-  -cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
