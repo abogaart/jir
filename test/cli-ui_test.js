@@ -23,7 +23,7 @@ describe('CLI utils', function() {
       });
 
       robot.typeString('Hello World');
-      robot.keyTap('enter');
+      robot.keyTap('return');
     });
   });
 });
