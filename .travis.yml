@@ -5,18 +5,6 @@ node_js:
   - "0.12"
   - "0.10"
 
-addons:
-  apt:
-    packages:
-    - libx11-dev
-    - zlib1g-dev
-    - libpng12-dev
-    - libxtst-dev
-
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
 script:
   # run tests with instanbul coverage
   - npm run coverage
