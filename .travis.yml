@@ -1,8 +1,5 @@
 sudo: false
 
-os:
-- osx
-
 language: node_js
 node_js:
   - "0.12"
@@ -22,7 +19,7 @@ before_script:
 
 script:
   # run tests with instanbul coverage
-  - npm run-script test-travis
+  - npm run coverage
 
 after_script:
   # send coverage data to Coveralls

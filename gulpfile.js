@@ -9,11 +9,7 @@ var jshint = require('gulp-jshint');
 
 gulp.task('jscs', function() {
   gulp.src('lib/**.js')
-    .pipe(jscs())
-    .pipe(notify({
-      title: 'JSCS',
-      message: 'JSCS Passed. Let it fly!'
-    }));
+    .pipe(jscs());
 });
 
 gulp.task('lint', function() {
@@ -32,7 +28,7 @@ gulp.task('build', ['jscs', 'lint'], function() {
 });
 
 gulp.task('test', function() {
-  return gulp.src(['test/**.js'], {read: false})
+  return gulp.src(['lib/**/*.spec.js'], {read: false})
     .pipe(mocha({reporter: 'spec'}))
     .on('error', util.log);
 });

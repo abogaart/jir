@@ -37,9 +37,9 @@
     "jir": "./lib/cli.js"
   },
   "scripts": {
-    "test": "gulp test",
-    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- test -R spec",
-    "coverage": "istanbul cover _mocha -- test -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "mocha $(find lib -path '*.spec.js') -R dot",
+    "coverage": "istanbul cover _mocha -- $(find lib -path '*.spec.js') -R spec",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
     "chai": "3.0.0",
