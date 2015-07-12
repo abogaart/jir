@@ -22,8 +22,10 @@ describe('CLI utils', function() {
         done();
       });
 
-      robot.typeString('Hello World');
-      robot.keyTap('return');
+      setTimeout(function() {
+        robot.typeString('Hello World');
+        robot.keyTap("enter");
+      }, 100);
     });
   });
 });
