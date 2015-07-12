@@ -3,19 +3,17 @@
   "boss": true,
   "browser": false,
   "curly": true,
+  "devel": true,
   "eqnull": true,
   "expr": true,
   "globals": {
-    "_": true,
-    "console": true,
-    "indexOf": true,
-    "describe": true,
-    "it": true
+    "indexOf": true
   },
   "globalstrict": true,
   "immed": true,
   "laxbreak": true,
   "loopfunc": true,
+  "mocha": true,
   "newcap": false,
   "noarg": true,
   "node": true,
